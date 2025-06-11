@@ -1,60 +1,71 @@
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 animate-pulse"></div>
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
-      
+    <section className="relative min-h-screen flex items-center justify-center px-4 bg-white">
       <div className="relative z-10 text-center max-w-4xl mx-auto">
-        <div className="mb-6">
-          <Badge variant="outline" className="mb-4 text-cyan-400 border-cyan-400/50 bg-cyan-400/10">
+        <div className="mb-8">
+          <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             متخصص تکنولوژی و نوآوری
-          </Badge>
+          </span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in">
+        <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
           مهندس هوش مصنوعی
           <br />
-          و توسعه‌دهنده
+          <span className="text-blue-600">و توسعه‌دهنده</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
           متخصص اتوماسیون، AI Agent، سئو، برنامه‌نویسی و دیجیتال مارکتینگ
           <br />
           آماده تبدیل ایده‌های شما به واقعیت
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            asChild
           >
-            مشاهده نمونه‌کارها
+            <Link to="/portfolio">مشاهده نمونه‌کارها</Link>
           </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="border-purple-500/50 text-purple-400 hover:bg-purple-500/10 px-8 py-6 text-lg font-semibold rounded-xl"
+            className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold rounded-lg"
+            asChild
           >
-            تماس با من
+            <Link to="/contact">تماس با من</Link>
           </Button>
         </div>
         
-        {/* Floating Tech Icons */}
-        <div className="mt-16 flex justify-center gap-8 opacity-60">
-          <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center animate-bounce">
-            <span className="text-white font-bold">AI</span>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="text-center p-6 bg-gray-50 rounded-lg">
+            <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <span className="text-white font-bold text-lg">AI</span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">هوش مصنوعی</h3>
+            <p className="text-gray-600">توسعه سیستم‌های هوشمند و اتوماسیون</p>
           </div>
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center animate-bounce" style={{animationDelay: '0.2s'}}>
-            <span className="text-white font-bold">SEO</span>
+          
+          <div className="text-center p-6 bg-gray-50 rounded-lg">
+            <div className="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <span className="text-white font-bold text-lg">SEO</span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">سئو و بهینه‌سازی</h3>
+            <p className="text-gray-600">افزایش رتبه و ترافیک وب‌سایت</p>
           </div>
-          <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center animate-bounce" style={{animationDelay: '0.4s'}}>
-            <span className="text-white font-bold">DEV</span>
+          
+          <div className="text-center p-6 bg-gray-50 rounded-lg">
+            <div className="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <span className="text-white font-bold text-lg">DEV</span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">توسعه وب</h3>
+            <p className="text-gray-600">طراحی و پیاده‌سازی وب‌سایت</p>
           </div>
         </div>
       </div>

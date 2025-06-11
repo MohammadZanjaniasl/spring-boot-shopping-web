@@ -5,17 +5,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { Json } from "@/integrations/supabase/types";
 
 interface PortfolioItem {
   id: string;
   title: string;
-  description: string;
-  image_url: string;
-  project_url: string;
+  description: string | null;
+  image_url: string | null;
+  project_url: string | null;
   technologies: string[];
-  category: string;
-  is_featured: boolean;
+  category: string | null;
+  is_featured: boolean | null;
 }
 
 const Portfolio = () => {
@@ -38,7 +37,9 @@ const Portfolio = () => {
       // Transform the data to match our interface
       const transformedData = data?.map(item => ({
         ...item,
-        technologies: Array.isArray(item.technologies) ? item.technologies : []
+        technologies: Array.isArray(item.technologies) 
+          ? item.technologies.filter((tech): tech is string => typeof tech === 'string')
+          : []
       })) || [];
       setPortfolioItems(transformedData);
     }
@@ -51,13 +52,13 @@ const Portfolio = () => {
     : portfolioItems.filter(item => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-24 pb-12">
+    <div className="min-h-screen bg-white pt-24 pb-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             نمونه‌کارها
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             مجموعه‌ای از پروژه‌های انجام شده در زمینه‌های مختلف تکنولوژی
           </p>
         </div>
@@ -70,8 +71,8 @@ const Portfolio = () => {
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
               className={selectedCategory === category 
-                ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white" 
-                : "border-gray-600 text-gray-300 hover:bg-gray-800"
+                ? "bg-blue-600 text-white hover:bg-blue-700" 
+                : "border-gray-300 text-gray-700 hover:bg-gray-50"
               }
             >
               {category === "all" ? "همه" : category}
@@ -82,9 +83,9 @@ const Portfolio = () => {
         {/* Portfolio Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item) => (
-            <Card key={item.id} className="bg-gray-900/70 border-gray-700/50 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 group">
+            <Card key={item.id} className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
               {item.image_url && (
-                <div className="aspect-video bg-gray-800 overflow-hidden">
+                <div className="aspect-video bg-gray-100 overflow-hidden rounded-t-lg">
                   <img 
                     src={item.image_url} 
                     alt={item.title}
@@ -94,23 +95,23 @@ const Portfolio = () => {
               )}
               <CardHeader>
                 <div className="flex items-start justify-between">
-                  <CardTitle className="text-xl text-white group-hover:text-cyan-400 transition-colors">
+                  <CardTitle className="text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
                     {item.title}
                   </CardTitle>
                   {item.is_featured && (
-                    <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
+                    <Badge className="bg-blue-600 text-white">
                       ویژه
                     </Badge>
                   )}
                 </div>
-                <CardDescription className="text-gray-300">
+                <CardDescription className="text-gray-600">
                   {item.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.technologies?.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">
+                    <Badge key={index} variant="outline" className="border-gray-300 text-gray-600">
                       {tech}
                     </Badge>
                   ))}
@@ -119,7 +120,7 @@ const Portfolio = () => {
                   {item.project_url && (
                     <Button
                       size="sm"
-                      className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white"
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
                       asChild
                     >
                       <a href={item.project_url} target="_blank" rel="noopener noreferrer">
@@ -136,7 +137,7 @@ const Portfolio = () => {
 
         {filteredItems.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-500 text-lg">
               هنوز پروژه‌ای در این دسته‌بندی وجود ندارد.
             </p>
           </div>
