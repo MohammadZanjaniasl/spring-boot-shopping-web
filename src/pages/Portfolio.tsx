@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Json } from "@/integrations/supabase/types";
 
 interface PortfolioItem {
   id: string;
@@ -34,7 +35,12 @@ const Portfolio = () => {
     if (error) {
       console.error("Error fetching portfolio items:", error);
     } else {
-      setPortfolioItems(data || []);
+      // Transform the data to match our interface
+      const transformedData = data?.map(item => ({
+        ...item,
+        technologies: Array.isArray(item.technologies) ? item.technologies : []
+      })) || [];
+      setPortfolioItems(transformedData);
     }
   };
 

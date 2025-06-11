@@ -1,6 +1,13 @@
 
 import { useEffect, useRef } from 'react';
 
+// Extend Window interface for THREE.js
+declare global {
+  interface Window {
+    THREE: any;
+  }
+}
+
 const ThreeBackground = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
